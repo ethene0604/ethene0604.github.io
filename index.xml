@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Ethene&#39;s Blog</title>
+    <link>https://ethene0604.github.io/</link>
+    <description>Recent content in Home on Ethene&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://ethene0604.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ch2 面向对象</title>
+      <link>https://ethene0604.github.io/posts/java-introduction-ch2/</link>
+      <pubDate>Tue, 17 Mar 2026 23:11:20 +0800</pubDate>
+      <guid>https://ethene0604.github.io/posts/java-introduction-ch2/</guid>
+      <description>&lt;h3 id=&#34;class-类&#34;&gt;Class-类&#xA;  &lt;a class=&#34;heading-anchor&#34; href=&#34;#class-%e7%b1%bb&#34; aria-label=&#34;Copy link to this section&#34;&gt;&#xA;    &lt;svg viewBox=&#34;0 0 1024 1024&#34; width=&#34;18&#34; height=&#34;18&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&#xA;      &lt;path d=&#34;M633.417143 429.007238a174.567619 174.567619 0 0 1 0 246.857143l-155.306667 155.306667a186.709333 186.709333 0 1 1-264.045714-264.045715l76.483048-76.507428 51.73638 51.736381-76.507428 76.507428a113.566476 113.566476 0 1 0 160.597333 160.597334l155.306667-155.306667a101.424762 101.424762 0 0 0 0-143.408762z m208.603428-225.816381a186.709333 186.709333 0 0 1 0 264.045714L765.561905 543.744l-51.736381-51.712 76.507428-76.507429a113.566476 113.566476 0 1 0-160.597333-160.597333l-155.306667 155.306667a101.424762 101.424762 0 0 0 0 143.408762l-51.736381 51.736381a174.567619 174.567619 0 0 1 0-246.857143l155.306667-155.306667a186.709333 186.709333 0 0 1 264.045714 0z&#34;/&gt;&#xA;    &lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;类里包含成员，这点和&lt;code&gt;CPP&lt;/code&gt;相似&lt;br&gt;&#xA;定义一个变量→类的实例&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch1 基本知识</title>
+      <link>https://ethene0604.github.io/posts/java-introduction-ch1/</link>
+      <pubDate>Tue, 17 Mar 2026 23:11:15 +0800</pubDate>
+      <guid>https://ethene0604.github.io/posts/java-introduction-ch1/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;JVM&lt;/strong&gt;&lt;br&gt;&#xA;入门代码&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-java&#34;&gt;class Hello { &#xA;&#x9;public static void main(String[] arguments) { &#xA;&#x9;// Program execution begins here &#xA;&#x9;System.out.println(&amp;#34;Hello world.&amp;#34;); } }&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输出：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-java&#34;&gt;System.out.println(some String)&#xA;//例子&#xA;System.out.println(“output”);&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;字符串连接：&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-java&#34;&gt;String text = &amp;#34;hello&amp;#34; &amp;#43; &amp;#34; world&amp;#34;; &#xA;text = text &amp;#43; &amp;#34; number &amp;#34; &amp;#43; 5; &#xA;// text = &amp;#34;hello world number 5&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;变量作用域通常用&lt;code&gt;{}&lt;/code&gt;界定，多余的不再赘述。&lt;br&gt;&#xA;&lt;code&gt;JAVA&lt;/code&gt;的&lt;strong&gt;方法&lt;/strong&gt;体现了抽象，即提供接口给外部，实现在内部。&lt;br&gt;&#xA;&lt;code&gt;if-else&lt;/code&gt;和&lt;code&gt;C&lt;/code&gt;的用法相同。&lt;br&gt;&#xA;循环也大致相同。&lt;br&gt;&#xA;&lt;strong&gt;数组&lt;/strong&gt;：&lt;strong&gt;长度&lt;/strong&gt;必须由&lt;code&gt;new&lt;/code&gt;后指定&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-java&#34;&gt;int[] values; &#xA;int[][] values; // array of int // int[] is a type&#xA;&#xA;int[] values = new int[5];&#xA;&#xA;int size = 12; &#xA;int[] values = new int[size];&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;和&lt;code&gt;C/CPP&lt;/code&gt;一样，&lt;code&gt;{}&lt;/code&gt;只有在初始定义的时候可以使用。 &lt;br&gt;&#xA;提供了&lt;strong&gt;接口&lt;/strong&gt;查看数组长度：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello</title>
+      <link>https://ethene0604.github.io/posts/hello/</link>
+      <pubDate>Wed, 11 Mar 2026 21:45:00 +0800</pubDate>
+      <guid>https://ethene0604.github.io/posts/hello/</guid>
+      <description>&lt;p&gt;千辛万苦终于还是想要创一个博客，先开始吧！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://ethene0604.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/about/</guid>
+      <description>&lt;p&gt;Keep proving myself!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
