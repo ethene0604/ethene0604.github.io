@@ -706,8 +706,8 @@ $$</li>
 		return ackerman(ackerman(n-1,m),m-1);
 }</code></pre><ol start="2">
 <li>排列问题<br>
-设计一个递归算法生成n个元素$\{r1 ,r2 ,…,rn\}$的全排列。<br>
-<strong>算法思想</strong>：固定$r1$，求剩下n-1个元素的全排列，即为：$r1$为第一个元素时的全排列；然后将$r1$和剩下的元素交换，则覆盖了所有情况。  <br>
+设计一个递归算法生成n个元素$\{r1 ,r2 ,…,rn\}$的全排列。  <br>
+<strong>算法思想</strong>：固定$r1$，求剩下n-1个元素的全排列，即为：$r1$为第一个元素时的全排列；然后将$r1$和剩下的元素交换，则覆盖了所有情况。     <br>
 <strong>base-case</strong>：当剩下只有一个元素的时候，全排列为它本身<br>
 链接：<a href="https://leetcode.com/problems/permutations/description/">Permutations - LeetCode</a><br>
 作业代码实现：</li>
@@ -753,13 +753,7 @@ $$</li>
 <li>$q(n,m)=q(n,m-1)+q(n-m,m),n>m>1$
 本质是<strong>情况3的特殊到一般</strong>，情况分为两种，最大数小于m和最大数给定m</li>
 </ol>
-$$  T(n)=\left\{
-\begin{matrix}
-O(1)\ \ n<4\\
-2T(n/2)+O(n)\ \ n>=4
-\end{matrix}
-\right.
-$$$$  q(n,m)=\left\{
+$$  q(n,m)=\left\{
 \begin{matrix}
 1\ \ n=1且m=1\\
 q(n,n)\ \ n\lt m\\
@@ -858,7 +852,7 @@ $XY=ac10^n+((a-b)(d-c)+ac+bd)2^{n/2}+bd$
 <p>当k&gt;0时，将$2^k×2^k$棋盘分割为4个$2^{k-1}×2^{k-1}$子棋盘。特殊方格必位于4个较小子棋盘之一中，其余3个子棋盘中无特殊方格。为了将这3个无特殊方格的子棋盘转化为特殊棋盘，可以用一个L型骨牌覆盖这3个较小棋盘的会合处，如 (b)所示，从而将原问题转化为4个较小规模的棋盘覆盖问题。递归地使用这种分割，直至棋盘简化为棋盘1×1。</p>
 <p><img src="https://ethene0604.github.io/posts/algorithm-ch2/al-2-2.png" alt="al-2-2"></p>
 <p>复杂度达到：$T(N)=O(4^k)$
-同样不贴实现了，知道算法即可。<br>
+同样不贴实现了，知道算法即可。     <br>
 4. 合并排序 <br>
 分而治之的典型示例，分解到足够小的子问题再由下而上进行合并。  <br>
 对于两个有序数组的合并：</p>
