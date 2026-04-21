@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on Ethene&#39;s Blog</title>
+    <link>https://ethene0604.github.io/categories/algorithm/</link>
+    <description>Recent content in Algorithm on Ethene&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 21 Apr 2026 16:18:51 +0800</lastBuildDate>
+    <atom:link href="https://ethene0604.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ch2 递归与分治</title>
+      <link>https://ethene0604.github.io/posts/algorithm-ch2/</link>
+      <pubDate>Tue, 21 Apr 2026 16:18:51 +0800</pubDate>
+      <guid>https://ethene0604.github.io/posts/algorithm-ch2/</guid>
+      <description>&lt;div&#xA;  class=&#34;callout callout-info not-prose&#34;&#xA;  data-collapsible=&#34;false&#34;&#xA;  data-collapsed=&#34;false&#34;&gt;&#xA;  &lt;div class=&#34;callout-header&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34; aria-hidden=&#34;true&#34;&gt;&lt;svg viewBox=&#34;0 0 1024 1024&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path d=&#34;M512 97.52381c228.912762 0 414.47619 185.563429 414.47619 414.47619S740.912762 926.47619 512 926.47619 97.52381 740.912762 97.52381 512 283.087238 97.52381 512 97.52381zm0 73.142857C323.486476 170.666667 170.666667 323.486476 170.666667 512S323.486476 853.333333 512 853.333333 853.333333 700.513524 853.333333 512 700.513524 170.666667 512 170.666667zm36.571429 268.190476v292.571428h-73.142858V438.857143h73.142858zm0-121.904762v73.142857h-73.142858v-73.142857h73.142858z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span class=&#34;callout-title&#34;&gt;INFO&lt;/span&gt;&lt;/div&gt;&#xA;  &lt;div class=&#34;callout-content prose prose-sm sm:prose max-w-none dark:prose-invert&#34;&gt;本篇笔记基于《算法导论》CLRS一书和《算法分析与设计》课堂整理，如有错误，恳请联系指正。&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;h2 id=&#34;递归&#34;&gt;递归&#xA;  &lt;a class=&#34;heading-anchor&#34; href=&#34;#%e9%80%92%e5%bd%92&#34; aria-label=&#34;Copy link to this section&#34;&gt;&#xA;    &lt;svg viewBox=&#34;0 0 1024 1024&#34; width=&#34;18&#34; height=&#34;18&#34; fill=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&#xA;      &lt;path d=&#34;M633.417143 429.007238a174.567619 174.567619 0 0 1 0 246.857143l-155.306667 155.306667a186.709333 186.709333 0 1 1-264.045714-264.045715l76.483048-76.507428 51.73638 51.736381-76.507428 76.507428a113.566476 113.566476 0 1 0 160.597333 160.597334l155.306667-155.306667a101.424762 101.424762 0 0 0 0-143.408762z m208.603428-225.816381a186.709333 186.709333 0 0 1 0 264.045714L765.561905 543.744l-51.736381-51.712 76.507428-76.507429a113.566476 113.566476 0 1 0-160.597333-160.597333l-155.306667 155.306667a101.424762 101.424762 0 0 0 0 143.408762l-51.736381 51.736381a174.567619 174.567619 0 0 1 0-246.857143l155.306667-155.306667a186.709333 186.709333 0 0 1 264.045714 0z&#34;/&gt;&#xA;    &lt;/svg&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;核心思想上来看，算法总体是将大问题分解为若干个子问题进行求解，当子问题足够大，需要递归求解时，我们称之为&lt;strong&gt;递归情况&lt;/strong&gt;，当子问题不需要递归时，称之为&lt;strong&gt;基本情况（base case）&lt;/strong&gt;。&#xA;直接或间接地调用自身的算法称为&lt;strong&gt;递归&lt;/strong&gt;算法。用函数自身给出定义的函数称为&lt;strong&gt;递归&lt;/strong&gt;函数。&lt;br&gt;&#xA;例如：斐波那契数列的递推公式便体现了递归的递归情况和边界情况。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
