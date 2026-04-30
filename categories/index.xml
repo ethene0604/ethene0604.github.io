@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Ethene&#39;s Blog</title>
-    <link>https://ethene0604.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Ethene&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 21 Apr 2026 19:31:15 +0800</lastBuildDate>
-    <atom:link href="https://ethene0604.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algorithm</title>
-      <link>https://ethene0604.github.io/categories/algorithm/</link>
+      <link>http://localhost:1313/categories/algorithm/</link>
       <pubDate>Tue, 21 Apr 2026 16:18:51 +0800</pubDate>
-      <guid>https://ethene0604.github.io/categories/algorithm/</guid>
+      <guid>http://localhost:1313/categories/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>https://ethene0604.github.io/categories/programming/</link>
+      <link>http://localhost:1313/categories/programming/</link>
       <pubDate>Tue, 17 Mar 2026 23:11:20 +0800</pubDate>
-      <guid>https://ethene0604.github.io/categories/programming/</guid>
+      <guid>http://localhost:1313/categories/programming/</guid>
       <description></description>
     </item>
   </channel>
