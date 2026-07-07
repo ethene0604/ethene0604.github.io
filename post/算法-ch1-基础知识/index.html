@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="cn" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Ethene&#39;s Blog</title>
+<meta name="keywords" content="Algorithm">
+<meta name="description" content="算法性质：
+
+输入：有外部提供的零个或多个输入。
+输出：算法产生的一个或多个输出。
+确定性：组成算法的每条指令是清晰，无歧义的。
+有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。
+
+程序：
+
+程序是算法用某种程序设计语言的具体实现。
+程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。
+操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。
+
+复杂性
+时间复杂性$T(n)$ 
+空间复杂性$S(n)$
+算法渐近复杂性
+
+渐近上界记号：$O$
+渐近下界记号：$\Omega$
+紧渐近界记号：$\Theta$
+非紧上界记号：$o$ 即不取等
+非紧下界记号：$\omega$ 即不取等
+
+Big-O
+略去低阶项和常数系数项留下的主项
+渐近分析符号的若干性质
+
+传递性
+交叉（上界后面接下界或相反）不能传递
+反身性
+对称性
+对紧渐近界记号成立：$f(n)=\Theta (g(n))\iff g(n)=\Theta (f(n))$
+互对称性
+$f(n)=O(g(n)) \iff g(n)=\Omega (f(n))$
+$f(n)=o(g(n)) \iff g(n)=\omega (f(n))$
+算术运算
+$O(f(n))&#43;O(g(n)) = O(max\{f(n),g(n)\})$
+$O(f(n))&#43;O(g(n)) = O(f(n)&#43;g(n))$
+$O(f(n))*O(g(n)) = O(f(n)*g(n))$
+$O(cf(n)) = O(f(n))$
+$g(n)= O(f(n))\implies O(f(n))&#43;O(g(n)) = O(f(n))$
+$O(cf(n)=O(f(n)，其中c为常数$
+$f=O(f)$
+
+
+相关证明可以看看
+
+复杂性函数不等式
+$$ c">
+<meta name="author" content="Ethene">
+<link rel="canonical" href="https://ethene0604.github.io/post/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.db3dbcc7a3869465c09dfbe27c54894633a3f70ed8fe2b5a02cda36190e9b647.css" integrity="sha256-2z28x6OGlGXAnfvifFSJRjOj9w7Y/itaAs2jYZDptkc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ethene0604.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ethene0604.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ethene0604.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ethene0604.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ethene0604.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="cn" href="https://ethene0604.github.io/post/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js">
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js">
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest"><meta property="og:url" content="https://ethene0604.github.io/post/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  <meta property="og:site_name" content="Ethene&#39;s Blog">
+  <meta property="og:title" content="Ethene&#39;s Blog">
+  <meta property="og:description" content="算法性质：
+输入：有外部提供的零个或多个输入。 输出：算法产生的一个或多个输出。 确定性：组成算法的每条指令是清晰，无歧义的。 有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。 程序：
+程序是算法用某种程序设计语言的具体实现。 程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。 操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。 复杂性 时间复杂性$T(n)$ 空间复杂性$S(n)$
+算法渐近复杂性 渐近上界记号：$O$ 渐近下界记号：$\Omega$ 紧渐近界记号：$\Theta$ 非紧上界记号：$o$ 即不取等 非紧下界记号：$\omega$ 即不取等 Big-O 略去低阶项和常数系数项留下的主项
+渐近分析符号的若干性质 传递性 交叉（上界后面接下界或相反）不能传递 反身性 对称性 对紧渐近界记号成立：$f(n)=\Theta (g(n))\iff g(n)=\Theta (f(n))$ 互对称性 $f(n)=O(g(n)) \iff g(n)=\Omega (f(n))$ $f(n)=o(g(n)) \iff g(n)=\omega (f(n))$ 算术运算 $O(f(n))&#43;O(g(n)) = O(max\{f(n),g(n)\})$ $O(f(n))&#43;O(g(n)) = O(f(n)&#43;g(n))$ $O(f(n))*O(g(n)) = O(f(n)*g(n))$ $O(cf(n)) = O(f(n))$ $g(n)= O(f(n))\implies O(f(n))&#43;O(g(n)) = O(f(n))$ $O(cf(n)=O(f(n)，其中c为常数$ $f=O(f)$ 相关证明可以看看
+复杂性函数不等式 $$ c">
+  <meta property="og:locale" content="cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:tag" content="Algorithm">
+      <meta property="og:image" content="https://ethene0604.github.io/images/papermod-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ethene0604.github.io/images/papermod-cover.png">
+  <meta name="twitter:title" content="Ethene&#39;s Blog">
+  <meta name="twitter:description" content="算法性质：
+输入：有外部提供的零个或多个输入。 输出：算法产生的一个或多个输出。 确定性：组成算法的每条指令是清晰，无歧义的。 有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。 程序：
+程序是算法用某种程序设计语言的具体实现。 程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。 操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。 复杂性 时间复杂性$T(n)$ 空间复杂性$S(n)$
+算法渐近复杂性 渐近上界记号：$O$ 渐近下界记号：$\Omega$ 紧渐近界记号：$\Theta$ 非紧上界记号：$o$ 即不取等 非紧下界记号：$\omega$ 即不取等 Big-O 略去低阶项和常数系数项留下的主项
+渐近分析符号的若干性质 传递性 交叉（上界后面接下界或相反）不能传递 反身性 对称性 对紧渐近界记号成立：$f(n)=\Theta (g(n))\iff g(n)=\Theta (f(n))$ 互对称性 $f(n)=O(g(n)) \iff g(n)=\Omega (f(n))$ $f(n)=o(g(n)) \iff g(n)=\omega (f(n))$ 算术运算 $O(f(n))&#43;O(g(n)) = O(max\{f(n),g(n)\})$ $O(f(n))&#43;O(g(n)) = O(f(n)&#43;g(n))$ $O(f(n))*O(g(n)) = O(f(n)*g(n))$ $O(cf(n)) = O(f(n))$ $g(n)= O(f(n))\implies O(f(n))&#43;O(g(n)) = O(f(n))$ $O(cf(n)=O(f(n)，其中c为常数$ $f=O(f)$ 相关证明可以看看
+复杂性函数不等式 $$ c">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ethene0604.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://ethene0604.github.io/post/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "算法性质：\n输入：有外部提供的零个或多个输入。 输出：算法产生的一个或多个输出。 确定性：组成算法的每条指令是清晰，无歧义的。 有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。 程序：\n程序是算法用某种程序设计语言的具体实现。 程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。 操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。 复杂性 时间复杂性$T(n)$ 空间复杂性$S(n)$\n算法渐近复杂性 渐近上界记号：$O$ 渐近下界记号：$\\Omega$ 紧渐近界记号：$\\Theta$ 非紧上界记号：$o$ 即不取等 非紧下界记号：$\\omega$ 即不取等 Big-O 略去低阶项和常数系数项留下的主项\n渐近分析符号的若干性质 传递性 交叉（上界后面接下界或相反）不能传递 反身性 对称性 对紧渐近界记号成立：$f(n)=\\Theta (g(n))\\iff g(n)=\\Theta (f(n))$ 互对称性 $f(n)=O(g(n)) \\iff g(n)=\\Omega (f(n))$ $f(n)=o(g(n)) \\iff g(n)=\\omega (f(n))$ 算术运算 $O(f(n))+O(g(n)) = O(max\\{f(n),g(n)\\})$ $O(f(n))+O(g(n)) = O(f(n)+g(n))$ $O(f(n))*O(g(n)) = O(f(n)*g(n))$ $O(cf(n)) = O(f(n))$ $g(n)= O(f(n))\\implies O(f(n))+O(g(n)) = O(f(n))$ $O(cf(n)=O(f(n)，其中c为常数$ $f=O(f)$ 相关证明可以看看\n复杂性函数不等式 $$ c",
+  "keywords": [
+    "Algorithm"
+  ],
+  "articleBody": "算法性质：\n输入：有外部提供的零个或多个输入。 输出：算法产生的一个或多个输出。 确定性：组成算法的每条指令是清晰，无歧义的。 有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。 程序：\n程序是算法用某种程序设计语言的具体实现。 程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。 操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。 复杂性 时间复杂性$T(n)$ 空间复杂性$S(n)$\n算法渐近复杂性 渐近上界记号：$O$ 渐近下界记号：$\\Omega$ 紧渐近界记号：$\\Theta$ 非紧上界记号：$o$ 即不取等 非紧下界记号：$\\omega$ 即不取等 Big-O 略去低阶项和常数系数项留下的主项\n渐近分析符号的若干性质 传递性 交叉（上界后面接下界或相反）不能传递 反身性 对称性 对紧渐近界记号成立：$f(n)=\\Theta (g(n))\\iff g(n)=\\Theta (f(n))$ 互对称性 $f(n)=O(g(n)) \\iff g(n)=\\Omega (f(n))$ $f(n)=o(g(n)) \\iff g(n)=\\omega (f(n))$ 算术运算 $O(f(n))+O(g(n)) = O(max\\{f(n),g(n)\\})$ $O(f(n))+O(g(n)) = O(f(n)+g(n))$ $O(f(n))*O(g(n)) = O(f(n)*g(n))$ $O(cf(n)) = O(f(n))$ $g(n)= O(f(n))\\implies O(f(n))+O(g(n)) = O(f(n))$ $O(cf(n)=O(f(n)，其中c为常数$ $f=O(f)$ 相关证明可以看看\n复杂性函数不等式 $$ c",
+  "wordCount" : "64",
+  "inLanguage": "cn",
+  "image": "https://ethene0604.github.io/images/papermod-cover.png","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ethene"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ethene0604.github.io/post/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ethene's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ethene0604.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://ethene0604.github.io/" accesskey="h" title="Ethene&#39;s Blog (Alt + H)">Ethene&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://ethene0604.github.io/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/post/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">
+
+<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">Table of Contents</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#%e5%a4%8d%e6%9d%82%e6%80%a7" aria-label="复杂性">复杂性</a><ul>
+                                    
+                        <li>
+                            <a href="#%e7%ae%97%e6%b3%95%e6%b8%90%e8%bf%91%e5%a4%8d%e6%9d%82%e6%80%a7" aria-label="算法渐近复杂性">算法渐近复杂性</a></li>
+                        <li>
+                            <a href="#big-o" aria-label="Big-O">Big-O</a></li>
+                        <li>
+                            <a href="#%e6%b8%90%e8%bf%91%e5%88%86%e6%9e%90%e7%ac%a6%e5%8f%b7%e7%9a%84%e8%8b%a5%e5%b9%b2%e6%80%a7%e8%b4%a8" aria-label="渐近分析符号的若干性质">渐近分析符号的若干性质</a></li>
+                        <li>
+                            <a href="#%e5%a4%8d%e6%9d%82%e6%80%a7%e5%87%bd%e6%95%b0%e4%b8%8d%e7%ad%89%e5%bc%8f" aria-label="复杂性函数不等式">复杂性函数不等式</a></li></ul>
+                        </li>
+                        <li>
+                            <a href="#np%e5%ae%8c%e5%85%a8%e6%80%a7%e7%90%86%e8%ae%ba" aria-label="NP完全性理论">NP完全性理论</a><ul>
+                                    
+                        <li>
+                            <a href="#pnp" aria-label="P=NP?">P=NP?</a>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 4) > 0) {
+                document.getElementById("toc-container").classList.add("wide");
+            } else {
+                document.getElementById("toc-container").classList.remove("wide");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+  <div class="post-content md-content"><p><strong>算法</strong>性质：</p>
+<ol>
+<li>输入：有外部提供的零个或多个输入。</li>
+<li>输出：算法产生的一个或多个输出。</li>
+<li>确定性：组成算法的每条指令是清晰，无歧义的。</li>
+<li>有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。</li>
+</ol>
+<p><strong>程序</strong>：</p>
+<ol>
+<li>程序是算法用某种程序设计语言的具体实现。</li>
+<li>程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。</li>
+<li>操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。</li>
+</ol>
+<h3 id="复杂性">复杂性<a hidden class="anchor" aria-hidden="true" href="#复杂性">#</a></h3>
+<p>时间复杂性$T(n)$ <br>
+空间复杂性$S(n)$</p>
+<h4 id="算法渐近复杂性">算法渐近复杂性<a hidden class="anchor" aria-hidden="true" href="#算法渐近复杂性">#</a></h4>
+<ol>
+<li>渐近上界记号：$O$</li>
+<li>渐近下界记号：$\Omega$</li>
+<li>紧渐近界记号：$\Theta$</li>
+<li>非紧上界记号：$o$ 即不取等</li>
+<li>非紧下界记号：$\omega$ 即不取等</li>
+</ol>
+<h4 id="big-o">Big-O<a hidden class="anchor" aria-hidden="true" href="#big-o">#</a></h4>
+<p>略去低阶项和常数系数项留下的主项</p>
+<h4 id="渐近分析符号的若干性质">渐近分析符号的若干性质<a hidden class="anchor" aria-hidden="true" href="#渐近分析符号的若干性质">#</a></h4>
+<ol>
+<li>传递性
+交叉（上界后面接下界或相反）不能传递</li>
+<li>反身性</li>
+<li>对称性
+对<strong>紧渐近界记号</strong>成立：$f(n)=\Theta (g(n))\iff g(n)=\Theta (f(n))$</li>
+<li>互对称性
+$f(n)=O(g(n)) \iff g(n)=\Omega (f(n))$
+$f(n)=o(g(n)) \iff g(n)=\omega (f(n))$</li>
+<li>算术运算
+$O(f(n))+O(g(n)) = O(max\{f(n),g(n)\})$
+$O(f(n))+O(g(n)) = O(f(n)+g(n))$
+$O(f(n))*O(g(n)) = O(f(n)*g(n))$
+$O(cf(n)) = O(f(n))$
+$g(n)= O(f(n))\implies O(f(n))+O(g(n)) = O(f(n))$
+$O(cf(n)=O(f(n)，其中c为常数$
+$f=O(f)$</li>
+</ol>
+<blockquote>
+<p>相关证明可以看看</p>
+</blockquote>
+<h4 id="复杂性函数不等式">复杂性函数不等式<a hidden class="anchor" aria-hidden="true" href="#复杂性函数不等式">#</a></h4>
+$$ c<logN<log^2N<N<NlogN<N^2<N^3<2^N$$<h3 id="np完全性理论">NP完全性理论<a hidden class="anchor" aria-hidden="true" href="#np完全性理论">#</a></h3>
+<p>多项式时间：在计算复杂度理论中，指的是一个问题的计算时间不大于问题规模n的多项式倍数。即多项式时间就是指时间复杂度是个多项式。程序运行的时间随着数据规模n变化的函数为f(n)，f(n)是个多项式函数，那么就可以说是控制在多项式之内。  <br>
+P类问题：所有可以在多项式时间内求解的判定问题。 <br>
+<strong>指数级别的不是P问题</strong><br>
+NP问题：所有<strong>非确定性多项式</strong>时间可解的判定问题( Non-deterministic polynomial )</p>
+<h4 id="pnp">P=NP?<a hidden class="anchor" aria-hidden="true" href="#pnp">#</a></h4>
+<p>NP 问题能在多项式时间内“解决” ，只不过需要好运气。显然，P类问题肯定属于 NP 类问题。<br>
+所谓“P=NP” ，就是问——是不是所有的 NP 问题，都能找到多项式时间的确定性算法？
+<strong>NPC (NP-完全)问题</strong>：NPC指的是NP问题中最难
+的一部分问题，所有的NP问题都能在多项式时间内归约到NPC上。<br>
+<strong>NP-hard 问题</strong>： 对于这一类问题，用一句话概括们的特征就是“ at least as hard as the hardest problems in NP Problem ”，就是NP-hard问题至少和NP问题一样难。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ethene0604.github.io/tags/algorithm/">Algorithm</a></li>
+    </ul>
+
+  </footer><script src="https://giscus.app/client.js" 
+data-repo="ethene0604/ethene0604.github.io" 
+data-repo-id="R_kgDOTP1e3w"
+data-category="Announcements" 
+data-category-id="DIC_kwDOTP1e384DAqLb" 
+data-mapping="pathname" data-strict="0"
+data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous" async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>© <a href="https://github.com/adityatelange/hugo-PaperMod/graphs/contributors">PaperMod Contributors</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
