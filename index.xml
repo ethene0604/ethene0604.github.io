@@ -288,5 +288,257 @@ $$
 &lt;h4 id=&#34;im-liu-yixi-an-undergraduate-student-at-tongji-university-majoring-in-computer-science-and-technology&#34;&gt;I&amp;rsquo;m Liu Yixi, an undergraduate student at Tongji University, majoring in Computer Science and Technology.&lt;/h4&gt;
 &lt;h4 id=&#34;striving-for-being-an-uncommonly-good-developer&#34;&gt;Striving for being an uncommonly good developer.&lt;/h4&gt;</description>
     </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex01%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex01%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;动态规划EX01：买卖股票的最佳时机&amp;rdquo;
+slug: &amp;ldquo;23:37&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class=&#34;callout callout-info&#34;&gt;
+    &lt;div class=&#34;callout-title&#34;&gt;
+
+        
+
+        
+        
+        
+
+    &lt;/div&gt;
+
+    &lt;div class=&#34;callout-content&#34;&gt;
+        &lt;p&gt;我逐渐理解一切！ &lt;br&gt;
+本文初稿并未是时间和空间兼优的解法，后续有待更新&lt;br&gt;
+股票买卖问题具有无后效性，即当前状态已知的情况下，后续决策只与当前状态有关。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex02%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex02%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;动态规划EX02：最长回文子串&amp;rdquo;
+slug: &amp;ldquo;23:39&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: false # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;题解&#34;&gt;题解&lt;/h3&gt;
+&lt;p&gt;链接：&lt;a href=&#34;https://leetcode.cn/problems/longest-palindromic-substring/description/&#34;&gt;5. 最长回文子串 - 力扣（LeetCode）&lt;/a&gt;  &lt;br&gt;
+如果子串只有一个字母，那必定为回文子串，所以思考$s[i:j]$为子串的条件为$s[i+1:j-1]$为子串且$s[i]==s[j]$。由此写出状态方程：
+$P(i,j)$代表子串$S_i...S_j$是否为回文串，取值为True或者False。
+取False有两种情况：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex030-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex030-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;动态规划EX03：0-1背包问题&amp;rdquo;
+slug: &amp;ldquo;23:41&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;题解&#34;&gt;题解&lt;/h3&gt;
+&lt;p&gt;给定&lt;code&gt;n&lt;/code&gt;种物品和一背包。物品&lt;code&gt;i&lt;/code&gt;的重量是$w_i$，其价值为$v_i$，背包的容量为$C$。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大？&lt;br&gt;
+0-1背包本质上要求的是：
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;算法-CH1 基础知识&amp;rdquo;
+slug: &amp;ldquo;23:42&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;算法&lt;/strong&gt;性质：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;算法-CH3 动态规划&amp;rdquo;
+slug: &amp;ldquo;23:43&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class=&#34;callout callout-info&#34;&gt;
+    &lt;div class=&#34;callout-title&#34;&gt;
+
+        
+
+        
+        
+        
+
+    &lt;/div&gt;
+
+    &lt;div class=&#34;callout-content&#34;&gt;
+        &lt;p&gt;本篇笔记基于《算法导论》CLRS一书和算法分析与设计课堂整理，如有错误，恳请练习指正。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch4-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch4-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;算法-CH4 贪心算法&amp;rdquo;
+slug: &amp;ldquo;23:43&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;贪心算法做出的选择只是某种意义上的局部最优选择。当然，希望贪心算法得到的最终结果也是整体最优的。虽然贪心算法不能对所有问题都得到整体最优解，但对许多问题它能产生整体最优解。如单源最短路经问题，最小生成树问题等。在一些情况下，即使贪心算法不能得到整体最优解，其最终结果却是最优解的很好近似。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch5-%E5%9B%9E%E6%BA%AF%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch5-%E5%9B%9E%E6%BA%AF%E6%B3%95/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;算法-CH5 回溯法&amp;rdquo;
+slug: &amp;ldquo;23:44&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;基本思想&#34;&gt;基本思想&lt;/h2&gt;
+&lt;p&gt;有许多问题，当需要找出它的&lt;strong&gt;解集&lt;/strong&gt;或者要求回答什么解是满足某些约束条件的&lt;strong&gt;最佳解&lt;/strong&gt;时，往往要使用回溯法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch6-%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95branch-and-bound/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch6-%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95branch-and-bound/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;date: &amp;ldquo;2026-07-07&amp;rdquo; # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Algorithm
+title: &amp;ldquo;算法-CH6 分支限界法(Branch and Bound)&amp;rdquo;
+slug: &amp;ldquo;23:44&amp;rdquo; # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X
+share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布
+canonicalURL: &amp;quot;&amp;quot; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章
+keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容
+description: &amp;quot;&amp;quot; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容
+series: &amp;ldquo;系列&amp;rdquo; # 系列文章
+lastmod: # 文章最后更新的时间
+lang: &amp;ldquo;cn&amp;rdquo; # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等
+cover:
+image: &amp;quot;&amp;quot; # 文章封面图片地址
+author: # 作者名称
+dir: &amp;ldquo;posts&amp;rdquo; # 搭配 Enveloppe 插件设置文章上传的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;基本思想&#34;&gt;基本思想&lt;/h2&gt;
+&lt;p&gt;回溯法的求解目标是找出解空间树中满足约束条件的所有解，而分支限界法的求解目标则是找出满足约束条件的一个解，或是在满足约束条件的解中找出在某种意义下的最优解。
+回溯法以深度优先的方式搜索解空间树，而分支限界法则以&lt;strong&gt;广度优先&lt;/strong&gt;或以&lt;strong&gt;最小耗费优先&lt;/strong&gt;的方式搜索解空间树。&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
