@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="cn" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>JAVA-Ch1 基本知识 | Ethene&#39;s Blog</title>
+<meta name="keywords" content="Java">
+<meta name="description" content="JVM
+入门代码
+
+
+1
+2
+3
+4
+
+
+class Hello { 
+	public static void main(String[] arguments) { 
+	// Program execution begins here 
+	System.out.println(&#34;Hello world.&#34;); } }
+
+
+输出：
+
+
+1
+2
+3
+
+
+System.out.println(some String)
+//例子
+System.out.println(“output”);
+
+
+字符串连接：
+
+
+1
+2
+3
+
+
+String text = &#34;hello&#34; &#43; &#34; world&#34;; 
+text = text &#43; &#34; number &#34; &#43; 5; 
+// text = &#34;hello world number 5&#34;
+
+
+变量作用域通常用{}界定，多余的不再赘述。
+JAVA的方法体现了抽象，即提供接口给外部，实现在内部。
+if-else和C的用法相同。
+循环也大致相同。
+数组：长度必须由new后指定">
+<meta name="author" content="Ethene">
+<link rel="canonical" href="https://ethene0604.github.io/posts/java-introduction-ch1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1f658fa32bcd0bbf2c9827fee0e9db7d5d94f80b0789be76bd591dcb194c944c.css" integrity="sha256-H2WPoyvNC78smCf&#43;4OnbfV2U&#43;AsHib52vVkdyxlMlEw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ethene0604.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ethene0604.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ethene0604.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ethene0604.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ethene0604.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="cn" href="https://ethene0604.github.io/posts/java-introduction-ch1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js">
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js">
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest"><meta property="og:url" content="https://ethene0604.github.io/posts/java-introduction-ch1/">
+  <meta property="og:site_name" content="Ethene&#39;s Blog">
+  <meta property="og:title" content="JAVA-Ch1 基本知识">
+  <meta property="og:description" content="JVM
+入门代码
+1 2 3 4 class Hello { public static void main(String[] arguments) { // Program execution begins here System.out.println(&#34;Hello world.&#34;); } } 输出：
+1 2 3 System.out.println(some String) //例子 System.out.println(“output”); 字符串连接：
+1 2 3 String text = &#34;hello&#34; &#43; &#34; world&#34;; text = text &#43; &#34; number &#34; &#43; 5; // text = &#34;hello world number 5&#34; 变量作用域通常用{}界定，多余的不再赘述。
+JAVA的方法体现了抽象，即提供接口给外部，实现在内部。
+if-else和C的用法相同。
+循环也大致相同。
+数组：长度必须由new后指定">
+  <meta property="og:locale" content="cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-17T23:11:15+08:00">
+    <meta property="article:modified_time" content="2026-03-17T23:11:15+08:00">
+    <meta property="article:tag" content="Java">
+      <meta property="og:image" content="https://ethene0604.github.io/images/papermod-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ethene0604.github.io/images/papermod-cover.png">
+  <meta name="twitter:title" content="JAVA-Ch1 基本知识">
+  <meta name="twitter:description" content="JVM
+入门代码
+1 2 3 4 class Hello { public static void main(String[] arguments) { // Program execution begins here System.out.println(&#34;Hello world.&#34;); } } 输出：
+1 2 3 System.out.println(some String) //例子 System.out.println(“output”); 字符串连接：
+1 2 3 String text = &#34;hello&#34; &#43; &#34; world&#34;; text = text &#43; &#34; number &#34; &#43; 5; // text = &#34;hello world number 5&#34; 变量作用域通常用{}界定，多余的不再赘述。
+JAVA的方法体现了抽象，即提供接口给外部，实现在内部。
+if-else和C的用法相同。
+循环也大致相同。
+数组：长度必须由new后指定">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ethene0604.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "JAVA-Ch1 基本知识",
+      "item": "https://ethene0604.github.io/posts/java-introduction-ch1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "JAVA-Ch1 基本知识",
+  "name": "JAVA-Ch1 基本知识",
+  "description": "JVM\n入门代码\n1 2 3 4 class Hello { public static void main(String[] arguments) { // Program execution begins here System.out.println(\u0026#34;Hello world.\u0026#34;); } } 输出：\n1 2 3 System.out.println(some String) //例子 System.out.println(“output”); 字符串连接：\n1 2 3 String text = \u0026#34;hello\u0026#34; + \u0026#34; world\u0026#34;; text = text + \u0026#34; number \u0026#34; + 5; // text = \u0026#34;hello world number 5\u0026#34; 变量作用域通常用{}界定，多余的不再赘述。\nJAVA的方法体现了抽象，即提供接口给外部，实现在内部。\nif-else和C的用法相同。\n循环也大致相同。\n数组：长度必须由new后指定\n",
+  "keywords": [
+    "Java"
+  ],
+  "articleBody": "JVM\n入门代码\n1 2 3 4 class Hello { public static void main(String[] arguments) { // Program execution begins here System.out.println(\"Hello world.\"); } } 输出：\n1 2 3 System.out.println(some String) //例子 System.out.println(“output”); 字符串连接：\n1 2 3 String text = \"hello\" + \" world\"; text = text + \" number \" + 5; // text = \"hello world number 5\" 变量作用域通常用{}界定，多余的不再赘述。\nJAVA的方法体现了抽象，即提供接口给外部，实现在内部。\nif-else和C的用法相同。\n循环也大致相同。\n数组：长度必须由new后指定\n1 2 3 4 5 6 7 int[] values; int[][] values; // array of int // int[] is a type int[] values = new int[5]; int size = 12; int[] values = new int[size]; 和C/CPP一样，{}只有在初始定义的时候可以使用。 提供了接口查看数组长度：\n1 2 3 4 int[] values = new int[12]; int size = values.length; // 12 int[] values2 = {1,2,3,4,5} int size2 = values2.length; // 5 ",
+  "wordCount" : "125",
+  "inLanguage": "cn",
+  "image": "https://ethene0604.github.io/images/papermod-cover.png","datePublished": "2026-03-17T23:11:15+08:00",
+  "dateModified": "2026-03-17T23:11:15+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Ethene"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ethene0604.github.io/posts/java-introduction-ch1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ethene's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ethene0604.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://ethene0604.github.io/" accesskey="h" title="Ethene&#39;s Blog (Alt + H)">Ethene&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://ethene0604.github.io/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      JAVA-Ch1 基本知识
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-03-17 23:11:15 +0800 CST'>March 17, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p><strong>JVM</strong><br>
+入门代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Hello</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">arguments</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// Program execution begins here </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Hello world.&#34;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">some</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">//例子</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="err">“</span><span class="n">output</span><span class="err">”</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>字符串连接：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;hello&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; world&#34;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; number &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">5</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// text = &#34;hello world number 5&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>变量作用域通常用<code>{}</code>界定，多余的不再赘述。<br>
+<code>JAVA</code>的<strong>方法</strong>体现了抽象，即提供接口给外部，实现在内部。<br>
+<code>if-else</code>和<code>C</code>的用法相同。<br>
+循环也大致相同。<br>
+<strong>数组</strong>：<strong>长度</strong>必须由<code>new</code>后指定</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">values</span><span class="p">;</span><span class="w"> </span><span class="c1">// array of int // int[] is a type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">12</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">size</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>和<code>C/CPP</code>一样，<code>{}</code>只有在初始定义的时候可以使用。 <br>
+提供了<strong>接口</strong>查看数组长度：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">12</span><span class="o">]</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// 12 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">1</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">3</span><span class="p">,</span><span class="n">4</span><span class="p">,</span><span class="n">5</span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">size2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values2</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="c1">// 5</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ethene0604.github.io/tags/java/">Java</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ethene0604.github.io/posts/java-introduction-ch2/">
+    <span class="title">« </span>
+    <span>JAVA-Ch2 面向对象</span>
+  </a>
+  <a class="next" href="https://ethene0604.github.io/posts/hello/">
+    <span class="title"> »</span>
+    <span>Hello</span>
+  </a>
+</nav>
+
+  </footer><script src="https://giscus.app/client.js"
+        data-repo="ethene0604/ethene0604.github.io"
+        data-repo-id="R_kgDOTPz04g"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOTPz04s4DAqE9"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>© <a href="https://github.com/adityatelange/hugo-PaperMod/graphs/contributors">PaperMod Contributors</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
