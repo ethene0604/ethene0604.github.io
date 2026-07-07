@@ -213,53 +213,6 @@ $$ A(n,m)= \begin{cases} 2, &amp; n=1,\ m=0 \\ 1, &amp; n=0,\ m\ge0 \\ n&#43;2, 
 <span title='2026-04-21 16:18:51 +0800 +0800'>April 21, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
   <a class="entry-link" aria-label="post link to 算法-Ch2 递归与分治" href="https://ethene0604.github.io/posts/algorithm-ch2/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 我逐渐理解一切！ 本文初稿并未是时间和空间兼优的解法，后续有待更新
-股票买卖问题具有无后效性，即当前状态已知的情况下，后续决策只与当前状态有关。
-初始题 121. 买卖股票的最佳时机 - 力扣（LeetCode）
-给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
-你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
-返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0
-解法 事先声明，分析每一天持有股票状态和与状态相关操作并写出的状态转移方程核心都是不变的。
-股票买卖问题具有最优子结构性质，前几天的利润一定是当前状态下能最大获利的决策。
-这道题限制只能交易一次，对于每一天，有持有股票和未持有两种状态，如果未持有，有两种情况，可能前一天也未持有，也可能前一天持有今天卖出；同理，如果持有，可能前一天也持有，也可能前一天未持有今天购入。据此写出状态转移方程：用$dp[i][0]$表示第i&#43;1天未持有股票下获得的利润，$dp[i][1]$表示持有股票下获得的利润。 $$\begin{cases} dp[i][0]=max(dp[i-1][0],dp[i-1][1]&#43;prices[i])\\ dp[i][1]=max(dp[i-1][1],-prices[i]) \end{cases} $$ 1 2 3 4 5 6 7 8 9 10 11 def maxProfit(self, prices: List[int]) -&gt; int: n=len(prices) profit=0 dp=[[0]*2 for _ in range(n)] dp[0][0]=0 dp[0][1]=-prices[0] # 状态0：当天未持股 状态1:当天持股 for i in range (1,n): dp[i][1]=max(-prices[i],dp[i-1][1]) dp[i][0]=max(dp[i-1][0],dp[i-1][1]&#43;prices[i]) return dp[n-1][0] 变式1：允许无限次交易 122. 买卖股票的最佳时机 II - 力扣（LeetCode）
-在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。然而，你可以在 同一天 多次买卖该股票，但要确保你持有的股票不超过一股。
-和上一题大致相同，转移方程稍微修改一下就好。 ...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex01%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>题解 链接：5. 最长回文子串 - 力扣（LeetCode） 如果子串只有一个字母，那必定为回文子串，所以思考$s[i:j]$为子串的条件为$s[i&#43;1:j-1]$为子串且$s[i]==s[j]$。由此写出状态方程： $P(i,j)$代表子串$S_i...S_j$是否为回文串，取值为True或者False。 取False有两种情况：
-$s(i:j)$本身不是一个回文串; $i\gt j$，此时$s(i:j)$本身不合法。
-那么我们就可以写出动态规划的状态转移方程： $$P(i,j)=P(i&#43;1,j-1)\&amp;\&amp;(Si==Sj)$$ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 class Solution: def longestPalindrome(self, s: str) -&gt; str: n=len(s)# 字符串长度 dp=[[False for _ in range(n)]for _ in range(n)] #dp[i][j]表示字符串[i,j]是否为回文串 start,end=0,0 #字符串长度为1为回文串 for i in range(0,n): dp[i][i]=True #字符串长度为2为回文串：字符相同即为回文串 for i in range(0,n-1): if s[i]==s[i&#43;1]: dp[i][i&#43;1]=True start,end=i,i&#43;1 for l in range(3,n&#43;1): #dp的经典循环了，逐步扩大区间范围 for i in range(0,n-l&#43;1): j=i&#43;l-1 if s[i]==s[j] and dp[i&#43;1][j-1]: dp[i][j]=True start,end=i,j return s[start:end&#43;1] 最长回文子序列 链接：516. 最长回文子序列 - 力扣（LeetCode）
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex02%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="next" href="https://ethene0604.github.io/tags/algorithm/page/2/">Next&nbsp;2/3&nbsp;»
-    </a>
-  </nav>
-</footer>
     </main>
     
 <footer class="footer">
