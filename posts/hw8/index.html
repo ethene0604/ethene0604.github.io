@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="cn" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Ethene&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="最大多位整数问题
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+
+
+int main()
+{
+	vector&lt;string&gt;num;
+	int n=0;
+	cin&gt;&gt;n;//输入有几个数字
+	for(int i=0;i&lt;n;i&#43;&#43;){
+		string tmp;
+		cin&gt;&gt;tmp;
+		num.push_back(tmp);
+	}
+	for(int i=0;i&lt;n-1;i&#43;&#43;){
+		for(int k=i&#43;1;k&lt;n;k&#43;&#43;){
+			if(num[i]&#43;num[k]&lt;num[k]&#43;num[i]){//拼接字符串
+				string tmp=num[i];
+				num[i]=num[k];
+				num[k]=tmp;
+			}
+		}
+	}
+	for(int i=0;i&lt;n;i&#43;&#43;){
+		cout&gt;&gt;num[i];
+	}
+}
+
+
+Kruskal算法最小生成树
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+
+
+int minimumTree(int n, int[][] connections) {//使用并查集
+    UF uf = new UF(n &#43; 1);
+    // 对所有边按照权重从小到大排序
+    Arrays.sort(connections, (a, b) -&gt; (a[2] - b[2]));
+    // 记录最小生成树的权重之和
+    int mst = 0;
+    for (int[] edge : connections) {
+        int u = edge[0];
+        int v = edge[1];
+        int weight = edge[2];
+        // 若这条边会产生环，则不能加入 mst
+        if (uf.connected(u, v)) {
+            continue;
+        }
+        // 若这条边不会产生环，则属于最小生成树
+        mst &#43;= weight;
+        uf.union(u, v);
+    }
+    // 保证所有节点都被连通
+    return uf.count() == 2 ? mst : -1;
+}
+
+
+">
+<meta name="author" content="Ethene">
+<link rel="canonical" href="https://ethene0604.github.io/posts/hw8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.db3dbcc7a3869465c09dfbe27c54894633a3f70ed8fe2b5a02cda36190e9b647.css" integrity="sha256-2z28x6OGlGXAnfvifFSJRjOj9w7Y/itaAs2jYZDptkc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ethene0604.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ethene0604.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ethene0604.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ethene0604.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ethene0604.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="cn" href="https://ethene0604.github.io/posts/hw8/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js">
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js">
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest"><meta property="og:url" content="https://ethene0604.github.io/posts/hw8/">
+  <meta property="og:site_name" content="Ethene&#39;s Blog">
+  <meta property="og:title" content="Ethene&#39;s Blog">
+  <meta property="og:description" content="最大多位整数问题
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 int main() { vector&lt;string&gt;num; int n=0; cin&gt;&gt;n;//输入有几个数字 for(int i=0;i&lt;n;i&#43;&#43;){ string tmp; cin&gt;&gt;tmp; num.push_back(tmp); } for(int i=0;i&lt;n-1;i&#43;&#43;){ for(int k=i&#43;1;k&lt;n;k&#43;&#43;){ if(num[i]&#43;num[k]&lt;num[k]&#43;num[i]){//拼接字符串 string tmp=num[i]; num[i]=num[k]; num[k]=tmp; } } } for(int i=0;i&lt;n;i&#43;&#43;){ cout&gt;&gt;num[i]; } } Kruskal算法最小生成树
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 int minimumTree(int n, int[][] connections) {//使用并查集 UF uf = new UF(n &#43; 1); // 对所有边按照权重从小到大排序 Arrays.sort(connections, (a, b) -&gt; (a[2] - b[2])); // 记录最小生成树的权重之和 int mst = 0; for (int[] edge : connections) { int u = edge[0]; int v = edge[1]; int weight = edge[2]; // 若这条边会产生环，则不能加入 mst if (uf.connected(u, v)) { continue; } // 若这条边不会产生环，则属于最小生成树 mst &#43;= weight; uf.union(u, v); } // 保证所有节点都被连通 return uf.count() == 2 ? mst : -1; }">
+  <meta property="og:locale" content="cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+      <meta property="og:image" content="https://ethene0604.github.io/images/papermod-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ethene0604.github.io/images/papermod-cover.png">
+  <meta name="twitter:title" content="Ethene&#39;s Blog">
+  <meta name="twitter:description" content="最大多位整数问题
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 int main() { vector&lt;string&gt;num; int n=0; cin&gt;&gt;n;//输入有几个数字 for(int i=0;i&lt;n;i&#43;&#43;){ string tmp; cin&gt;&gt;tmp; num.push_back(tmp); } for(int i=0;i&lt;n-1;i&#43;&#43;){ for(int k=i&#43;1;k&lt;n;k&#43;&#43;){ if(num[i]&#43;num[k]&lt;num[k]&#43;num[i]){//拼接字符串 string tmp=num[i]; num[i]=num[k]; num[k]=tmp; } } } for(int i=0;i&lt;n;i&#43;&#43;){ cout&gt;&gt;num[i]; } } Kruskal算法最小生成树
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 int minimumTree(int n, int[][] connections) {//使用并查集 UF uf = new UF(n &#43; 1); // 对所有边按照权重从小到大排序 Arrays.sort(connections, (a, b) -&gt; (a[2] - b[2])); // 记录最小生成树的权重之和 int mst = 0; for (int[] edge : connections) { int u = edge[0]; int v = edge[1]; int weight = edge[2]; // 若这条边会产生环，则不能加入 mst if (uf.connected(u, v)) { continue; } // 若这条边不会产生环，则属于最小生成树 mst &#43;= weight; uf.union(u, v); } // 保证所有节点都被连通 return uf.count() == 2 ? mst : -1; }">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ethene0604.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://ethene0604.github.io/posts/hw8/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "最大多位整数问题\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 int main() { vector\u0026lt;string\u0026gt;num; int n=0; cin\u0026gt;\u0026gt;n;//输入有几个数字 for(int i=0;i\u0026lt;n;i++){ string tmp; cin\u0026gt;\u0026gt;tmp; num.push_back(tmp); } for(int i=0;i\u0026lt;n-1;i++){ for(int k=i+1;k\u0026lt;n;k++){ if(num[i]+num[k]\u0026lt;num[k]+num[i]){//拼接字符串 string tmp=num[i]; num[i]=num[k]; num[k]=tmp; } } } for(int i=0;i\u0026lt;n;i++){ cout\u0026gt;\u0026gt;num[i]; } } Kruskal算法最小生成树\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 int minimumTree(int n, int[][] connections) {//使用并查集 UF uf = new UF(n + 1); // 对所有边按照权重从小到大排序 Arrays.sort(connections, (a, b) -\u0026gt; (a[2] - b[2])); // 记录最小生成树的权重之和 int mst = 0; for (int[] edge : connections) { int u = edge[0]; int v = edge[1]; int weight = edge[2]; // 若这条边会产生环，则不能加入 mst if (uf.connected(u, v)) { continue; } // 若这条边不会产生环，则属于最小生成树 mst += weight; uf.union(u, v); } // 保证所有节点都被连通 return uf.count() == 2 ? mst : -1; } ",
+  "keywords": [
+    
+  ],
+  "articleBody": "最大多位整数问题\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 int main() { vector\u003cstring\u003enum; int n=0; cin\u003e\u003en;//输入有几个数字 for(int i=0;i\u003cn;i++){ string tmp; cin\u003e\u003etmp; num.push_back(tmp); } for(int i=0;i\u003cn-1;i++){ for(int k=i+1;k\u003cn;k++){ if(num[i]+num[k]\u003cnum[k]+num[i]){//拼接字符串 string tmp=num[i]; num[i]=num[k]; num[k]=tmp; } } } for(int i=0;i\u003cn;i++){ cout\u003e\u003enum[i]; } } Kruskal算法最小生成树\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 int minimumTree(int n, int[][] connections) {//使用并查集 UF uf = new UF(n + 1); // 对所有边按照权重从小到大排序 Arrays.sort(connections, (a, b) -\u003e (a[2] - b[2])); // 记录最小生成树的权重之和 int mst = 0; for (int[] edge : connections) { int u = edge[0]; int v = edge[1]; int weight = edge[2]; // 若这条边会产生环，则不能加入 mst if (uf.connected(u, v)) { continue; } // 若这条边不会产生环，则属于最小生成树 mst += weight; uf.union(u, v); } // 保证所有节点都被连通 return uf.count() == 2 ? mst : -1; } ",
+  "wordCount" : "151",
+  "inLanguage": "cn",
+  "image": "https://ethene0604.github.io/images/papermod-cover.png","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Ethene"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ethene0604.github.io/posts/hw8/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ethene's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ethene0604.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://ethene0604.github.io/" accesskey="h" title="Ethene&#39;s Blog (Alt + H)">Ethene&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://ethene0604.github.io/about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ethene0604.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      
+    </h1>
+    <div class="post-meta">
+
+<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>最大多位整数问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span><span class="c1">//输入有几个数字
+</span></span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">string</span> <span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">num</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">num</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">&lt;</span><span class="n">num</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]){</span><span class="c1">//拼接字符串
+</span></span></span><span class="line"><span class="cl">				<span class="n">string</span> <span class="n">tmp</span><span class="o">=</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">				<span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">num</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">				<span class="n">num</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="n">cout</span><span class="o">&gt;&gt;</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Kruskal算法最小生成树</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">minimumTree</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span><span class="p">[][]</span> <span class="n">connections</span><span class="p">)</span> <span class="p">{</span><span class="c1">//使用并查集
+</span></span></span><span class="line"><span class="cl">    <span class="n">UF</span> <span class="n">uf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UF</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 对所有边按照权重从小到大排序
+</span></span></span><span class="line"><span class="cl">    <span class="n">Arrays</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">connections</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 记录最小生成树的权重之和
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">mst</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="nl">edge</span> <span class="p">:</span> <span class="n">connections</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 若这条边会产生环，则不能加入 mst
+</span></span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">uf</span><span class="p">.</span><span class="n">connected</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 若这条边不会产生环，则属于最小生成树
+</span></span></span><span class="line"><span class="cl">        <span class="n">mst</span> <span class="o">+=</span> <span class="n">weight</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uf</span><span class="p">.</span><span class="k">union</span><span class="err">(</span><span class="nc">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 保证所有节点都被连通
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">uf</span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">?</span> <span class="nl">mst</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ethene0604.github.io/posts/hello/">
+    <span class="title">« Prev</span>
+    <span>Hello</span>
+  </a>
+  <a class="next" href="https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex01%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">
+    <span class="title">Next »</span>
+    <span></span>
+  </a>
+</nav>
+
+  </footer><script src="https://giscus.app/client.js" 
+data-repo="ethene0604/ethene0604.github.io" 
+data-repo-id="R_kgDOTP1e3w"
+data-category="Announcements" 
+data-category-id="DIC_kwDOTP1e384DAqLb" 
+data-mapping="pathname" data-strict="0"
+data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous" async>
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>© <a href="https://github.com/adityatelange/hugo-PaperMod/graphs/contributors">PaperMod Contributors</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
