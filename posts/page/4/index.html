@@ -200,50 +200,57 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">JAVA-Ch2 面向对象
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH4 贪心算法” slug: “23:43” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 贪心算法做出的选择只是某种意义上的局部最优选择。当然，希望贪心算法得到的最终结果也是整体最优的。虽然贪心算法不能对所有问题都得到整体最优解，但对许多问题它能产生整体最优解。如单源最短路经问题，最小生成树问题等。在一些情况下，即使贪心算法不能得到整体最优解，其最终结果却是最优解的很好近似。
+    <p>Class-类 类里包含成员，这点和CPP相似
+定义一个变量→类的实例
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 public class Baby { String name; boolean isMale; double weight; double decibels; int numPoops = 0; void poop() { numPoops &#43;= 1; System.out.println(“Dear mother, ”&#43; “I have pooped. Ready the diaper.”); } } Baby myBaby = new Baby();//Instance 类名首字母大写（洋文规则怪谈？ 一个类放在一个文件里 main代表这个类可以运行 同样的，注意引用类型存储的是地址，即默认情况下为浅拷贝和比较地址。 实例方法可以调用static方法，但是反过来会报错。 static只有一份，独属类本身，但是它直接调用实例方法/变量时候，会疑问该调用哪个对象的变量/方法。
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch4-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"></a>
+<span title='2026-03-17 23:11:20 +0800 +0800'>March 17, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to JAVA-Ch2 面向对象" href="https://ethene0604.github.io/posts/java-introduction-ch2/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">JAVA-Ch1 基本知识
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH5 回溯法” slug: “23:44” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 基本思想 有许多问题，当需要找出它的解集或者要求回答什么解是满足某些约束条件的最佳解时，往往要使用回溯法。
+    <p>JVM
+入门代码
+1 2 3 4 class Hello { public static void main(String[] arguments) { // Program execution begins here System.out.println(&#34;Hello world.&#34;); } } 输出：
+1 2 3 System.out.println(some String) //例子 System.out.println(“output”); 字符串连接：
+1 2 3 String text = &#34;hello&#34; &#43; &#34; world&#34;; text = text &#43; &#34; number &#34; &#43; 5; // text = &#34;hello world number 5&#34; 变量作用域通常用{}界定，多余的不再赘述。
+JAVA的方法体现了抽象，即提供接口给外部，实现在内部。
+if-else和C的用法相同。
+循环也大致相同。
+数组：长度必须由new后指定
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span>6 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch5-%E5%9B%9E%E6%BA%AF%E6%B3%95/"></a>
+<span title='2026-03-17 23:11:15 +0800 +0800'>March 17, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to JAVA-Ch1 基本知识" href="https://ethene0604.github.io/posts/java-introduction-ch1/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">Hello
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH6 分支限界法(Branch and Bound)” slug: “23:44” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 基本思想 回溯法的求解目标是找出解空间树中满足约束条件的所有解，而分支限界法的求解目标则是找出满足约束条件的一个解，或是在满足约束条件的解中找出在某种意义下的最优解。 回溯法以深度优先的方式搜索解空间树，而分支限界法则以广度优先或以最小耗费优先的方式搜索解空间树。
-...</p>
+    <p>千辛万苦终于还是想要创一个博客，先开始吧！
+</p>
   </div>
   <footer class="entry-footer">
 
-<span>5 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch6-%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95branch-and-bound/"></a>
+<span title='2026-03-11 21:45:00 +0800 +0800'>March 11, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to Hello" href="https://ethene0604.github.io/posts/hello/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

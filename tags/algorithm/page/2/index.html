@@ -190,50 +190,70 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">算法-CH1 基础知识
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “动态规划EX03：0-1背包问题” slug: “23:41” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 题解 给定n种物品和一背包。物品i的重量是$w_i$，其价值为$v_i$，背包的容量为$C$。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大？
-0-1背包本质上要求的是： ...</p>
+    <p>算法性质：
+输入：有外部提供的零个或多个输入。 输出：算法产生的一个或多个输出。 确定性：组成算法的每条指令是清晰，无歧义的。 有限性：算法中每条指令的执行次数是有限的，执行每条指令的时间也是有限的。 程序：
+程序是算法用某种程序设计语言的具体实现。 程序可以不满足算法的性质(4)。例如操作系统，是一个在无限循环中执行的程序，因而不是一个算法。 操作系统的各种任务可看成是单独的问题，每一个问题由操作系统中的一个子程序通过特定的算法来实现。该子程序得到输出结果后便终止。 复杂性 时间复杂性$T(n)$ 空间复杂性$S(n)$
+算法渐近复杂性 渐近上界记号：$O$ 渐近下界记号：$\Omega$ 紧渐近界记号：$\Theta$ 非紧上界记号：$o$ 即不取等 非紧下界记号：$\omega$ 即不取等 Big-O 略去低阶项和常数系数项留下的主项
+渐近分析符号的若干性质 传递性 交叉（上界后面接下界或相反）不能传递 反身性 对称性 对紧渐近界记号成立：$f(n)=\Theta (g(n))\iff g(n)=\Theta (f(n))$ 互对称性 $f(n)=O(g(n)) \iff g(n)=\Omega (f(n))$ $f(n)=o(g(n)) \iff g(n)=\omega (f(n))$ 算术运算 $O(f(n))&#43;O(g(n)) = O(max\{f(n),g(n)\})$ $O(f(n))&#43;O(g(n)) = O(f(n)&#43;g(n))$ $O(f(n))*O(g(n)) = O(f(n)*g(n))$ $O(cf(n)) = O(f(n))$ $g(n)= O(f(n))\implies O(f(n))&#43;O(g(n)) = O(f(n))$ $O(cf(n)=O(f(n)，其中c为常数$ $f=O(f)$ 相关证明可以看看
+复杂性函数不等式 $$ c...</p>
   </div>
   <footer class="entry-footer">
 
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex030-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"></a>
+<span title='2026-07-12 00:00:00 +0000 UTC'>July 12, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to 算法-CH1 基础知识" href="https://ethene0604.github.io/posts/blog-post-slug/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">算法-CH3 动态规划
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH1 基础知识” slug: “23:42” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 算法性质：
+    <p> 本篇笔记基于《算法导论》CLRS一书和算法分析与设计课堂整理，如有错误，恳请练习指正。
+导入 递归和分治的章节里介绍了斐波那契数列的算法，然而，简洁的递归式掩盖了它的时间复杂度，递归树中，许多节点被重复求解，如果在执行的时候把执行过的子节点保存起来，后面要用到的时候直接查表调用的话可以节约大量的时间。
+1 2 3 4 5 6 7 8 9 10 public static int fib(int n){ if(n&lt;=0) return n; int []Memo=new int[n&#43;1]; Memo[0]=0; Memo[1]=1; for(int i=2;i&lt;=n;i&#43;&#43;) { Memo[i]=Memo[i-1]&#43;Memo[i-2]; } return Memo[n]; } 进一步的，可以发现，每次循环时候待求项只与前两项有关，因此可以进一步简化：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 int fib(int n) { int n1=1,n2=1,n3=1;//n3=n1&#43;n2 if(n==0){ return 0; } else if(n&lt;=2){ return 1; } for(int i=3;i&lt;=n;i&#43;&#43;){ n1=n2; n2=n3; n3=n1&#43;n2; } return n3; } 动态规划（Dynamic Programming） 相比于分治将问题划分为互不相交的子问题，进行递归求解，再合并解，动态规划应用于子问题重叠的情况，即不同的子问题具有公共的子子问题。
+动态规划算法对于每个公共子子问题只求解一次，将其解保存在一个表格中，从而避免重复计算。 动态规划方法通常用来求解最优化问题，通常用动态规划解决的问题具有最优子结构性质：一个问题的解，可以由他的子问题的解来确定，而要想达到当前状态的最优解，则子问题的解也应该是最优的，即全局最优解包含局部最优解。
+同时具有重叠子问题性质：每次产生的子问题并不总是新问题，对每一个子问题只解一次，而后将其解保存在一个表格中，当再次需要解此子问题时，只是简单地用常数时间查看一下结果。
+我们通常按如下4个步骤来设计一个动态规划算法:
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"></a>
+<span title='2026-07-12 00:00:00 +0000 UTC'>July 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to 算法-CH3 动态规划" href="https://ethene0604.github.io/posts/blog-post-slug/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">算法-CH4 贪心算法
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH3 动态规划” slug: “23:43” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 本篇笔记基于《算法导论》CLRS一书和算法分析与设计课堂整理，如有错误，恳请练习指正。
+    <p>贪心算法做出的选择只是某种意义上的局部最优选择。当然，希望贪心算法得到的最终结果也是整体最优的。虽然贪心算法不能对所有问题都得到整体最优解，但对许多问题它能产生整体最优解。如单源最短路经问题，最小生成树问题等。在一些情况下，即使贪心算法不能得到整体最优解，其最终结果却是最优解的很好近似。
+贪心算法基本要素 贪心算法适用于组合优化问题，和求解过程是多步判断的过程，最终的判断序列对应问题的最优解；依据某种“短视的”贪心选择性质判断，性质的好坏决定算法的成败；
+贪心算法必须进行正确性证明；证明贪心法不正确的技巧为举反例。贪心算法的优势为算法简单，时空复杂度低。
+贪心选择性质 所谓贪心选择性质是指所求问题的整体最优解可以通过一系列局部最优的选择，即贪心选择来达到。这是贪心算法可行的第一个基本要素，也是贪心算法与动态规划算法的主要区别。
+动态规划算法通常以自底向上的方式解各子问题，而贪心算法则通常以自顶向下的方式进行，以迭代的方式作出相继的贪心选择，每作一次贪心选择就将所求问题简化为规模更小的子问题。
+对于一个具体问题，要确定它是否具有贪心选择性质，必须证明每一步所作的贪心选择最终导致问题的整体最优解。
+最优子结构性质 当一个问题的最优解包含其子问题的最优解时，称此问题具有最优子结构性质。问题的最优子结构性质是该问题可用动态规划算法或贪心算法求解的关键特征。
+活动安排问题 设有n个活动的集合$E=\{1, 2, …, n\}$，其中每个活动都要求使用同一资源，如演讲会场等，而在同一时间内只有一个活动能使用这一资源。每个活动i都有一个要求使用该资源的起始时间$s_i$和一个结束时间$f_i$ ,且$s_i \lt f_i$ 。如果选择了活动i，则它在半开时间区间$[s_i,f_i)$内占用资源。若区间$[s_i,f_i)$与区间$[s_j,f_j)$不相交，则称活动i与活动j是相容的。也就是说，当$s_i \geq f_j$ 或$s_j \geq f_i$时，活动i与活动j相容。
+贪心选择：贪结束最早，使得剩余可安排时间段最大化
+当输入的活动已按结束时间的非减序排列，算法只需$O(n)$的时间安排n个活动，使最多的活动能相容地使用公共资源。如果所给出的活动未按非减序排列，可以用$O(nlogn)$的时间重排。
+1 2 3 4 5 6 7 8 9 10 11 12 template&lt;class Type&gt; void GreedySelector(int n, Type s[], Type f[], bool A[]){ A[1]=true; int j=1; for (int i=2;i&lt;=n;i&#43;&#43;) { if (s[i]&gt;=f[j]) { A[i]=true; j=i; } else A[i]=false; } } 数学归纳法证明整体最优 设$S={1,2,3,…,n}$是活动集，且$f1≤f2≤f3≤…≤fn$，若选择$k=1$项活动，证明存在最优解包含活动1。
+证：任取最优解A，A中活动按完成时间递增排列，如果A的第一个活动为j，j≠1，可以用活动1替换A中的第一个活动j，得到解A’,$A’=(A-{j})\vee{1}$，由于$f1≤fj$，得到A’也是最优解，且包含活动1。
+假设命题对k成立，证明对k&#43;1也成立。
+证：算法执行到第k步，选择了活动$i1=1, i2 ,…, ik$，根据归纳假设存在最优解A包含$i1=1, i2 ,…, i k$，A中剩下的活动选自集合S&#39;，$S&#39;=\{i|i\in S,si\geq fk\},A=\{i1,i2,...,ik\}\cup B$
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"></a>
+<span title='2026-07-12 00:00:00 +0000 UTC'>July 12, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to 算法-CH4 贪心算法" href="https://ethene0604.github.io/posts/blog-post-slug/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

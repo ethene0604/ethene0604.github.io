@@ -200,50 +200,96 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">算法-CH5 回溯法
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “动态规划EX03：0-1背包问题” slug: “23:41” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 题解 给定n种物品和一背包。物品i的重量是$w_i$，其价值为$v_i$，背包的容量为$C$。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大？
-0-1背包本质上要求的是： ...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92ex030-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH1 基础知识” slug: “23:42” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 算法性质：
+    <p>基本思想 有许多问题，当需要找出它的解集或者要求回答什么解是满足某些约束条件的最佳解时，往往要使用回溯法。
+回溯法在问题的解空间树中，按深度优先策略，从根结点出发搜索解空间树。算法搜索至解空间树的任意一点时，先判断该结点是否包含问题的解。如果肯定不包含，则跳过对该结点为根的子树的搜索，逐层向其祖先结点回溯；否则，进入该子树，继续按深度优先策略搜索。
+算法框架 递归回溯 迭代回溯 子集树算法框架 排列树算法框架 问题的解空间 问题的解向量：回溯法希望一个问题的解能够表示成一个n元式$(x1,x2,…,xn)$的形式。
+显约束：对分量$xi$的取值限定。
+隐约束：为满足问题的解而对不同分量之间施加的约束。
+解空间：对于问题的一个实例，解向量满足显式约束条件的所有多元组，构成了该实例的一个解空间。
+生成问题状态的基本方法 扩展结点：一个正在产生儿子的结点称为扩展结点。
+活结点：一个自身已生成但其儿子还没有全部生成的节点称做活结点。
+死结点：一个所有儿子已经产生的结点称做死结点。
+深度优先 深度优先的问题状态生成法：如果对一个扩展结点R，一旦产生了它的一个儿子C，就把C当做新的扩展结点。在完成对子树C（以C为根的子树）的穷尽搜索之后，将R重新变成扩展结点，继续生成R的下一个儿子（如果存在）。
+广度优先 广度优先的问题状态生成法：在一个扩展结点变成死结点之前，它一直是扩展结点。
+回溯法 为了避免生成那些不可能产生最优解的问题状态，要不断地利用限界函数(bounding function) 来处死那些实际上不可能产生所需解的活结点，以减少问题的计算量。具有限界函数的深度优先生成法称为回溯法。
+回溯法基本思路 从根开始，以深度优先搜索的方式进行搜索。
+根结点是活结点并且是当前的扩展结点。在搜索的过程中，当前的扩展结点向纵深方向移向一个新结点，判断该新结点是否满足隐约束。
+如果满足，则新结点成为活结点，并且成为当前的扩展结点，继续深一层的搜索；
+如果不满足，则换该新结点的兄弟结点（扩展结点的其它分支）继续搜索；
+如果新结点没有兄弟结点，或其兄弟结点已全部搜索完毕，则扩展结点成为死结点，搜索回溯到其父结点处继续进行。
+搜索过程直到找到问题的解或根结点变成死结点为止。
+回溯法基本思想 针对所给问题，定义问题的解空间； 确定易于搜索的解空间结构； 以深度优先方式搜索解空间，并在搜索过程中用剪枝函数避免无效搜索。 常用剪枝函数
+用约束函数在扩展结点处剪去不满足约束的子树；
+用限界函数剪去得不到最优解的子树。
+用回溯法解题的一个显著特征是在搜索过程中动态产生问题的解空间。在任何时刻，算法只保存从根结点到当前扩展结点的路径。如果解空间树中从根结点到叶结点的最长路径的长度为$h(n)$，则回溯法所需的计算空间通常为$O(h(n))$。而显式地存储整个解空间则需要$O(2^{h(n)})$或$O(h(n)!)$内存空间。
+算法框架 递归回溯 1 2 3 4 5 6 7 8 9 10 11 12 void backtrack (int t){ if (t&gt;n) output(x); // 到达叶子结点，将结果输出 else{// 遍历结点t的所有子结点，即枚举t所有可能的路径 for (int i=f(n,t);i&lt;=g(n,t);i&#43;&#43;){ //检查扩展结点的每个分支 x[t]=h(i); ;//取当前扩展节点的第i个可选值 // 如果不满足剪枝条件，则继续遍历，进入下一层 if (constraint(t)&amp;&amp;bound(t)) backtrack(t&#43;1); } } } 其中$f(n,t),g(n,t)$表示当前扩展结点处未搜索过的子树的起始标号和终止标号，$h(i)$表示当前扩展节点处，$x[t]$的第i个可选值。
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span>1 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"></a>
+<span title='2026-07-12 00:00:00 +0000 UTC'>July 12, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to 算法-CH5 回溯法" href="https://ethene0604.github.io/posts/blog-post-slug/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">
+    <h2 class="entry-hint-parent">算法-CH6 分支限界法(Branch and Bound)
     </h2>
   </header>
   <div class="entry-content">
-    <p> date: “2026-07-07” # 创建时间，我这边生成的格式是 YYYY-MM-DDTHH:mm:ssZ tags:
-Algorithm title: “算法-CH3 动态规划” slug: “23:43” # 自定义 URL 中文章的访问名称，默认用时间戳填充模板格式为X share: true # 配合 Enveloppe插件用的,true表示 obsidian 的文章可以发布 canonicalURL: &#34;&#34; # 之前文章在其他地方被发布的地址，避免搜索引擎重复，设置了该属性会优先展示 canonicalURL 执行的文章 keywords: # 用于 SEO 优化，也可以不配置该内容默认会使用 tags 的内容 description: &#34;&#34; # 文章的描述 SEO 优化，为空时默认会截取文章前面的内容 series: “系列” # 系列文章 lastmod: # 文章最后更新的时间 lang: “cn” # 默认不用写，配置文件会设置默认 cn 中文，en 英文等等 cover: image: &#34;&#34; # 文章封面图片地址 author: # 作者名称 dir: “posts” # 搭配 Enveloppe 插件设置文章上传的目录 本篇笔记基于《算法导论》CLRS一书和算法分析与设计课堂整理，如有错误，恳请练习指正。
+    <p>基本思想 回溯法的求解目标是找出解空间树中满足约束条件的所有解，而分支限界法的求解目标则是找出满足约束条件的一个解，或是在满足约束条件的解中找出在某种意义下的最优解。 回溯法以深度优先的方式搜索解空间树，而分支限界法则以广度优先或以最小耗费优先的方式搜索解空间树。
+在分支限界法中，每一个活结点只有一次机会成为扩展结点。活结点一旦成为扩展结点，就一次性产生其所有儿子结点。在这些儿子结点中，导致不可行解或导致非最优解的儿子结点被舍弃，其余儿子结点被加入活结点表中。
+此后，从活结点表中取下一结点成为当前扩展结点，并重复上述结点扩展过程。这个过程一直持续到找到所需的解或活结点表为空时为止。
+常见的两种分支限界法 队列式（FIFO）分支限界法 按照队列先进先出（FIFO）原则选取下一个节点为扩展节点。
+数据结构：队列
+优先队列式分支限界法 按照优先队列中规定的优先级选取优先级最高的节点成为当前扩展节点。
+数据结构：堆
+最大优先队列：最大堆，体现最大效益优先
+最小优先队列：最小堆，体现最小费用优先
+队列式（FIFO）分支限界法 一开始，根结点是唯一的活结点，根结点入队。从活结点队中取出根结点后，作为当前扩展结点。对当前扩展结点，先从左到右地产生它的所有儿子，用约束条件检查，把所有满足约束函数的儿子加入活结点队列中。再从活结点表中取出队首结点为当前扩展结点，……，直到找到一个解或活结点队列为空为止。
+优先队列式分支限界法 对每一活结点计算一个优先级（某些信息的函数值），并根据这些优先级；从当前活结点表中优先选择一个优先级最高（最有利）的结点作为扩展结点，使搜索朝着解空间树上有最优解的分支推进，以便尽快地找出一个最优解。再从活结点表中下一个优先级别最高的结点为当前扩展结点，……，直到找到一个解或活结点队列为空为止。
+算法步骤 定义解空间 确定易于搜索的解空间结构（二叉树…） 确定结点的数据结构 确定约束条件与限界条件用于剪枝 确定活结点组织方法（队列/优先队列（优先级函数）） 确定答案节点识别方法 单源最短路径问题 解单源最短路径问题的优先队列式分支限界法：用极小堆来存储活结点表。其优先级是结点所对应的当前路长。算法从图G的源顶点s和空优先队列开始。结点s被扩展后，它的儿子结点被依次插入堆中。
+此后，算法从堆中取出具有最小当前路长的结点作为当前扩展结点，并依次检查与当前扩展结点相邻的所有顶点。如果从当前扩展结点i到顶点j有边可达，且从源出发，途经顶点i再到顶点j的所相应的路径的长度小于当前最优路径长度，则将该顶点作为活结点插入到活结点优先队列中。这个结点的扩展过程一直继续到活结点优先队列为空时为止。
+剪枝 在算法扩展结点的过程中，一旦发现一个结点的下界不小于当前找到的最短路长，则算法剪去以该结点为根的子树。
+在算法中，利用结点间的控制关系进行剪枝。从源顶点s出发，2条不同路径到达图G的同一顶点。由于两条路径的路长不同，因此可以将路长长的路径所对应的树中的结点为根的子树剪去。
+课件给的代码太难理解了，让dpsk重写了。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 // 活结点类 template&lt;typename Type&gt; struct MinHeapNode { int i; // 顶点编号 Type length; // 从源点到该顶点的当前路长（即限界值/优先级） // 小根堆比较函数（优先级：length越小越高） bool operator&gt;(const MinHeapNode&amp; other) const { return length &gt; other.length; } }; // 分支限界法求解单源最短路径（邻接矩阵c，顶点数n，源点s） // dist[] 返回最短距离，prev[] 返回前驱结点 template&lt;typename Type&gt; void BranchAndBoundSP(Type** c, int n, int s, Type dist[], int prev[]) { // 初始化：dist置无穷大，前驱置-1 for (int i = 1; i &lt;= n; i&#43;&#43;) { dist[i] = INF; prev[i] = -1; } dist[s] = 0; // 创建活结点优先队列（小根堆） priority_queue&lt;MinHeapNode&lt;Type&gt;, vector&lt;MinHeapNode&lt;Type&gt;&gt;, greater&lt;MinHeapNode&lt;Type&gt;&gt;&gt; H; // 3源点作为第一个活结点入队 MinHeapNode&lt;Type&gt; start; start.i = s; start.length = 0; H.push(start); // 分支限界主循环：一直扩展到优先队列为空 while (!H.empty()) { // -------- 扩展阶段：取出优先级最高（当前路长最小）的结点 -------- MinHeapNode&lt;Type&gt; E = H.top(); H.pop(); // 同一个顶点i可能因为多条路径而多次入队。 // 如果出队的这个结点路径长度 &gt; dist[i]，说明它已经被更短的路径“控制”了， // 该结点为根的子树无需扩展，直接剪掉。 if (E.length != dist[E.i]) { continue; } // 生成所有邻接子结点 for (int j = 1; j &lt;= n; j&#43;&#43;) { // 边是否存在 if (c[E.i][j] &gt;= INF) continue; Type new_len = E.length &#43; c[E.i][j]; // 核心限界 &#43; 控制关系剪枝 // 如果从源经 E.i 到 j 的新路长 小于 当前已知的 dist[j]， // 说明新路径控制了旧路径，更新全局界限，并将j作为新活结点插入 if (new_len &lt; dist[j]) { dist[j] = new_len; // 更新全局最短距离（即限界值） prev[j] = E.i; // 记录前驱 // 创建新活结点，加入优先队列 MinHeapNode&lt;Type&gt; child; child.i = j; child.length = new_len; H.push(child); } // 若 new_len &gt;= dist[j]，则限界失败，剪去该子分支（不入队） } // 循环继续，取下一个优先级最高的活结点扩展 } } 剪枝策略 在算法扩展结点的过程中，一旦发现一个结点的下界不小于当前找到的最短路长，则算法剪去以该结点为根的子树。
 ...</p>
   </div>
   <footer class="entry-footer">
 
-<span>2 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
-  <a class="entry-link" aria-label="post link to " href="https://ethene0604.github.io/posts/%E7%AE%97%E6%B3%95-ch3-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"></a>
+<span title='2026-07-12 00:00:00 +0000 UTC'>July 12, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to 算法-CH6 分支限界法(Branch and Bound)" href="https://ethene0604.github.io/posts/blog-post-slug/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">算法-Ch2 递归与分治
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> Note 本篇笔记基于《算法导论》CLRS一书和《算法分析与设计》课堂整理，如有错误，恳请联系指正。
+递归 核心思想上来看，算法总体是将大问题分解为若干个子问题进行求解，当子问题足够大，需要递归求解时，我们称之为递归情况，当子问题不需要递归时，称之为基本情况（base case）。 直接或间接地调用自身的算法称为递归算法。用函数自身给出定义的函数称为递归函数。
+例如：斐波那契数列的递推公式便体现了递归的递归情况和边界情况。
+例题 Ackerman函数
+Ackerman函数A(n,m)定义如下：
+$$ A(n,m)= \begin{cases} 2, &amp; n=1,\ m=0 \\ 1, &amp; n=0,\ m\ge0 \\ n&#43;2, &amp; n\ge2,\ m=0 \\ A(A(n-1,m),m-1), &amp; n,m\ge1 \end{cases} $$ 当一个函数及它的一个变量是由函数自身定义时，称这个函数是双递归函数。
+朴实的递归实现，根据函数定义分情况:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 int ackerman(int n,int m) { if(m==0&amp;&amp;n==1) return 2; if(m&gt;=0&amp;&amp;n==0) return 1; if(m==0&amp;&amp;n&gt;=2) return n&#43;2; if(m&gt;=1&amp;&amp;n&gt;=1) return ackerman(ackerman(n-1,m),m-1); } 排列问题
+设计一个递归算法生成n个元素$\{r1 ,r2 ,…,rn\}$的全排列。 算法思想：固定$r1$，求剩下n-1个元素的全排列，即为：$r1$为第一个元素时的全排列；然后将$r1$和剩下的元素交换，则覆盖了所有情况。 base-case：当剩下只有一个元素的时候，全排列为它本身
+链接：Permutations - LeetCode
+作业代码实现： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 class Solution { public: vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) { int n = nums.size(); if (n == 0) { return {}; } else if (n == 1) { return {{nums[0]}}; } else { vector&lt;vector&lt;int&gt;&gt; result; int num = nums[0]; // 取头部的元素 vector&lt;int&gt; rest(nums.begin() &#43; 1, nums.end()); vector&lt;vector&lt;int&gt;&gt; subResult = permute(rest); // 去除头部的一个元素之后的全排列 for (const auto&amp; item : subResult) { // 在每个子排列的所有位置和头部元素交换 for (int pos = 0; pos &lt;= item.size(); &#43;&#43;pos) { vector&lt;int&gt; tmp = item; tmp.insert(tmp.begin() &#43; pos, num); result.push_back(tmp); } } return result; } } }; 整数划分问题 将正整数n表示成一系列正整数之和：$n=n_1&#43;n_2&#43;…&#43;n_k$，
+其中$n_1≥n_2≥…≥n_k≥1，k≥1$。正整数n的这种表示称为正整数n的划分。求正整数n的不同划分个数。 算法思想：设$q(n,m)$为最大加数$n_1$不大于$m$的划分个数，建立递归关系：
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-04-21 16:18:51 +0800 +0800'>April 21, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Ethene</span></footer>
+  <a class="entry-link" aria-label="post link to 算法-Ch2 递归与分治" href="https://ethene0604.github.io/posts/algorithm-ch2/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
